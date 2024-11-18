@@ -1,13 +1,9 @@
-class Solution(object):
-    def sortPeople(self, names, height):
-        length=len(height)
+class Solution:
+    def sortPeople(self, names: List[str], heights: List[int]) -> List[str]:
+        length=len(names)
         for i in range(length):
-            max_index=i
-            for j in range(i+1,length):
-                if height[j]>height[max_index]:
-                    max_index=j
-            height[i],height[max_index]= height[max_index],height[i]
-            names[i],names[max_index]= names[max_index],names[i]
-        return names   
-
-        
+            for j in range(length-i-1):
+                if heights[j+1]> heights[j]:
+                   heights[j+1],heights[j]=heights[j],heights[j+1]
+                   names[j+1],names[j]=names[j],names[j+1]
+        return names           
