@@ -6,10 +6,8 @@ class Solution(object):
         :rtype: float
         """
 
-        window=0
+        window=sum(s[:k])
         left=0
-        for r in range(k):
-            window+=s[r]
         maxx=window
         for r in range(k,len(s)):
             window= window-s[left] +s[r] 
