@@ -7,11 +7,9 @@ class Solution(object):
         """
 
         window=sum(s[:k])
-        left=0
         maxx=window
         for r in range(k,len(s)):
-            window= window-s[left] +s[r] 
-            left+=1
+            window= window- s[r-k] + s[r] 
             maxx=max(window,maxx)
         return float(maxx)/k   
         
