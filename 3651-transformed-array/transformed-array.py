@@ -1,7 +1,19 @@
-class Solution:
-    def constructTransformedArray(self, nums: List[int]) -> List[int]:
-        result=[None] * len(nums)
+class Solution(object):
+    def constructTransformedArray(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[int]
+        """
+        result=[0] * len(nums)
         for i in range(len(nums)):
-            result[i]=nums[(i + nums[i])% len(nums)]
-        return result     
+            if nums[i]>0:
+                index=(i+nums[i])%len(nums)
+                result[i]= nums[index]
+            elif nums[i]<0:
+                index=(i-abs(nums[i]))%len(nums)
+                result[i]= nums[index]
+            else:
+                result[i]=nums[i]
+        return result             
 
+        
