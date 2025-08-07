@@ -8,13 +8,12 @@ class Solution:
             else:    
                output.append(nums[i]) 
         output.append(nums[len(nums)-1])       
-        zeros=[]
-        non_Zeros=[]    
-        for i in output:
-            if i==0:
-                zeros.append(i)
-            else:
-                non_Zeros.append(i)
-        return  non_Zeros+zeros            
-
+        def zero_check(nums):
+            non_zero=0
+            for i in range(len(nums)):
+                if nums[i]!=0:
+                    nums[i],nums[non_zero]=nums[non_zero],nums[i]
+                    non_zero+=1
+            return nums   
+        return zero_check(output)      
         
