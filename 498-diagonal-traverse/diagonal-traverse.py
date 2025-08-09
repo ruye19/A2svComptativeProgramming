@@ -5,11 +5,7 @@ class Solution:
         sum_collection=defaultdict(list)
         for i in range(n):
             for j in range(m):
-                sum_collection[i+j].append(mat[i][j])
-                # if i+j not in sum_collection:
-                #     sum_collection[i+j]=[mat[i][j]]
-                # else: 
-                #     sum_collection[i+j].append(mat[i][j])   
+                sum_collection[i+j].append(mat[i][j])        
         for key,value in sum_collection.items():
             if key%2==0:
                 output.extend(value[::-1])
