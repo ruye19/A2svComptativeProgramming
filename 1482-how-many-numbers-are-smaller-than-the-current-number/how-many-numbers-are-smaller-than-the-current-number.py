@@ -5,7 +5,7 @@ class Solution:
         output = []
         for num in nums:
             countArray[num] += 1
-        print(countArray) 
+        # print(countArray) 
         for i in range(1,len(countArray)):
             countArray[i] += countArray[i - 1]
         # print(countArray) 
