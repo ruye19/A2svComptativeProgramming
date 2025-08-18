@@ -5,7 +5,6 @@ class Solution:
         for i in range(len(nums)):
             if i > 0 and nums[i] == nums[i - 1]:
                 continue  
-
             j, k = i + 1, len(nums) - 1
             while j < k:
                 current_sum = nums[i] + nums[j] + nums[k]
