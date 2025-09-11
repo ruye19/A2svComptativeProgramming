@@ -3,7 +3,7 @@ class Solution:
         if sum(candies) < k:
             return 0
         
-        def distribute(c: int) -> bool:
+        def distribute(c):
             if c == 0:
                 return True
             
