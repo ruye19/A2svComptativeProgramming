@@ -5,7 +5,6 @@ class Solution:
         n = len(nums)
         low = 0 
         high = n - 1
-
         while low <= high:
             i = (low + high) // 2 
             if nums[i] == target:
