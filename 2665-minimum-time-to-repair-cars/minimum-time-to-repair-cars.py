@@ -8,7 +8,6 @@ class Solution:
             return total 
 
         left, right = 1, ranks[0] * cars * cars
-    
         while left <= right:
             mid = (left + right) // 2
             if number_cars(mid) >= cars:
@@ -16,4 +15,4 @@ class Solution:
                 right = mid - 1
             else:
                 left = mid + 1 
-        return right + 1                
+        return left              
