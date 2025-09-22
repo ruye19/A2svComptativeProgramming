@@ -1,13 +1,18 @@
 class Solution:
-    def fib(self, n: int) -> int:
-        memo = []
-        # if memo[n] in memo:
-        #     return memo
-        if n == 0:
-            return 0
-        if n == 1:
-            return 1
+    def __init__(self):
+        self.memo = {} 
 
-        # memo[n] = fib(n - 1) + fib(n - 2)        
-        return self.fib(n - 1) + self.fib(n - 2)        
+    def fib(self, n: int) -> int:
+        if n in self.memo:  
+            return self.memo[n]
+           
+        if n == 0 or n == 1:
+            return n
+
+        self.memo[n] = self.fib(n - 1) + self.fib(n - 2)      
+        return self.memo[n]
+
+
+              
+        # return self.fib(n - 1) + self.fib(n - 2)        
         
