@@ -1,8 +1,17 @@
 class Solution:
     def climbStairs(self, n: int) -> int:
-        if n <= 2:
-            return n
-        a,b = 1, 2
-        for _ in range(3, n+1):
-            a,b = b,a+b
-        return b
+        memo = defaultdict(int)
+        def dp(i):
+            if i in memo:
+                return memo[i]
+            if i == n:   
+                return 1
+            if i > n:   
+                return 0
+
+            memo[i] = dp(i + 1) + dp(i + 2)
+            return memo[i]
+        return dp(0)    
+
+
+        
