@@ -1,11 +1,9 @@
 class Solution:
     def getSneakyNumbers(self, nums: List[int]) -> List[int]:
+        nums.sort()
         output = []
-        freq = Counter(nums)
-        for items,count in freq.items():
-            if count >= 2:
-                output.append(items)
-        return output         
-
-
-        
+        for i in range(len(nums) - 1):
+            if nums[i] == nums[i + 1]:
+                output.append(nums[i+ 1])
+                i += 1
+        return output        
