@@ -3,20 +3,25 @@ class Solution:
         first="qwertyuiopQWERTYUIOP"
         second="asdfghjklASDFGHJKL"
         third="zxcvbnmZXCVBNM"
-        output=[]
+        rows = [first, second, third]
+        rowNum = 0
+        lookup = {}
+        output =[]
+        for row in rows:
+            for char in row:
+                lookup[char] = rowNum
+            rowNum += 1    
         for word in words:
-            s=""
-            for i in word:
-                if i in first:
-                    s+="f"
-                if i in second:
-                    s+="s"
-                if i in third:
-                    s+="t"
-            print(s)        
-            if len(set(s))==1:
+            for c in range(len(word) - 1):
+                if lookup[word[c]] != lookup[word[c + 1]]:
+                    break
+            else:
                 output.append(word)
-        return output         
+        return output        
+
+
+                                                                                                                                                                                                                                 
+                 
 
 
 
