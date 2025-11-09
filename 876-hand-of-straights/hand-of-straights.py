@@ -1,10 +1,8 @@
 class Solution:
     def isNStraightHand(self, hand: List[int], groupSize: int) -> bool:
         
-        # Count your hand
         cards = Counter(hand)
-        # start from the minimum card
-        #values
+        
         values = list(set(hand))
         values.sort()   
         
@@ -19,7 +17,7 @@ class Solution:
                     if cards[values[minIndex] + i] == 0:
                         del cards[values[minIndex] + i]
             
-            while minIndex != len(values) and values[minIndex] not in cards:
+            while cards and values[minIndex] not in cards:
                 minIndex += 1
             
         return True
