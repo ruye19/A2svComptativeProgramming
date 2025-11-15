@@ -1,12 +1,12 @@
 class Solution:
     def balancedStringSplit(self, s: str) -> int:
-        s = list(s)
-        for i in range(len(s)):   
-            s[i] = 1 if s[i] == "R" else -1 
-
-        for j in range(1, len(s)):
-            s[j] += s[j - 1]
-        return s.count(0)    
+        summ = 0
+        count = 0
+        for j in range(len(s)):
+            summ += 1 if s[j] == "R" else -1 
+            if summ == 0:
+                count += 1 
+        return count   
 
 
    
