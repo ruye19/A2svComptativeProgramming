@@ -1,8 +1,11 @@
 class Solution:
     def findCenter(self, edges: List[List[int]]) -> int:
         
-        u, v = edges[0]
-        if u in edges[1]:
-            return u
-        else:
-            return v
+        indegree = [0 for _ in range(len(edges) + 1)]
+        for u, v in edges:
+            indegree[u - 1] += 1
+            indegree[v - 1] += 1
+        
+        for i in range(len(indegree)):
+            if indegree[i] == len(edges):
+                return i + 1
